@@ -1,0 +1,109 @@
+---
+import '../styles/tailwind.css'; 
+import Navbar from '../components/Navbar.jsx';
+import Helados from '../components/Helados.jsx';
+import Footer from '../components/Footer.jsx'; 
+
+
+const componentsData = [
+{
+    heroTitle: 'HELADO',
+	herTitle: 'DE', 
+	title: 'YOGURT', 
+    heroDescription: 'Suave helado de yogurt. 80% menos grasa y 50% menos ',
+	herDescripcion: 'azúcar.', 
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/y-helado.png',
+}, 
+{
+	heroTitle: 'HELADO ',
+	herTitle: 'DE', 
+	title: 'ALMENDRAS',
+    heroDescription: 'Suave helado de leche de almendras. Libre de lácteos, sin ',
+	herDescripcion: 'gluten y 0% azúcar refinada.', 
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/helado-almendras-1.png ',
+}, 
+{
+	heroTitle: 'MIXO',
+    heroDescription: 'Una base de tu helado o yogurt favorito + 4 adiciones ',
+	herDescripcion: 'normales incluidas.', 
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/mixo-y-helado.png',
+}, 
+{
+	heroTitle: 'POKET',
+    heroDescription: 'Una base de torta artesanal acompañada de tu helado o yogurt favorito.',
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/poket-y-helado.png ',
+}, 
+{
+	heroTitle: 'YOGURT',
+	herTitle: 'GRIEGO', 
+    heroDescription: 'Yogurt cuchareable y cremoso, con más contenido de ',
+	herDescripcion: 'proteína y menos contenido de grasa.', 
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/yogur-griego.png',
+}, 
+{
+	heroTitle: 'CUCURUCHOS',
+    heroDescription: 'Helado de Yogurt o Helado de Almendras en Cucurucho.',
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/cucurucho-1.png',
+}, 
+{
+	heroTitle: 'PALETAS',
+    heroDescription: 'Paletas artesanales. Más de 20 sabores deliciosos para ',
+	herDescripcion: 'disfrutar.', 
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/paletas-frutales.png',
+}, 
+{
+	heroTitle: 'ADICIONES',
+    heroDescription: 'Perfecta combinación de helado y frutas.',
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/adiciones-para-llevar.png',
+}, 
+{
+	heroTitle: 'PRODUCTOS',
+	herTitle: 'PARA', 
+	title: 'LLEVAR',
+    heroDescription: 'Para disfrutar y compartir en casa.',
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/03/prodctos-circulosy-helado-litro-1.png',
+}, 
+{
+	heroTitle: 'TARJETA',
+	herTitle: 'REGALO', 
+    heroDescription: 'Ideal para regalar y disfrutar juntos.',
+    heroImageSrc: 'https://www.percimon.com/wp-content/uploads/2021/02/bonos.png',
+}
+]
+
+---
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Percimon</title>
+</head>
+<body>
+	<Navbar client:load />
+	{componentsData.map((data) => (
+		<Helados client:load
+		  heroTitle={data.heroTitle}
+		  herTitle={data.herTitle}
+		  title={data.title}
+		  heroDescription={data.heroDescription}
+		  herDescripcion={data.herDescripcion}
+		  heroImageSrc={data.heroImageSrc}
+		/>
+	  ))}
+	<Footer />
+	<div id="app">
+		<main>
+		  <slot />
+		</main>
+	  </div>
+	  <script>
+		import('wowjs').then(({ WOW }) => {
+		  new WOW().init();
+		});
+	  </script>
+</body>
+</html>
+
